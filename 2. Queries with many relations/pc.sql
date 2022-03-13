@@ -24,12 +24,10 @@ WHERE p.maker = 'B';
 
 -- 3
 (SELECT p.maker FROM product AS p
-JOIN laptop AS l
-ON l.model = p.model)
+WHERE p.type = 'Laptop')
 EXCEPT
 (SELECT p.maker FROM product AS p
-JOIN pc
-ON pc.model = p.model);
+WHERE p.type = 'PC');
 
 -- 4
 SELECT DISTINCT(pc.hd) FROM pc
